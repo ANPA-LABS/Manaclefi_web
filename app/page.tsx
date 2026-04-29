@@ -1,6 +1,15 @@
 import Image from "next/image";
 import Sections from "./components/sections";
 import Sections2 from "./components/section2";
+import StockCard from "./components/stockCard";
+import StampCard from "./components/stampCard";
+import ProposalCard from "./components/proposalCard";
+import FriendsStackedCard from "./components/friendCard";
+import RebalanceTimer from "./components/rebalanceTimer";
+import RebalanceTimerStatic from "./components/rebalanceTimerStatic";
+import Sections3 from "./components/section3";
+import Cta from "./components/cta";
+
 
 export default function Home() {
   return (
@@ -30,34 +39,46 @@ export default function Home() {
       <section className="relative w-full pt-10 bg-white mt-4" style={{ borderTopLeftRadius: 45, borderTopRightRadius: 45 }}>
 
         {/* Headline */}
-        <div className="relative z-10 px-10 bg-blue-100 flex flex-row">
+        <div className="relative z-10 px-10 flex flex-row">
           <div>
-          <h1 className="text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight text-black">
-            Complete{" "}
-            <em className="text-zinc-400 not-italic font-bold">gigs</em>
-            , earn
-            <br />
-            rewards with Gigcep.
-          </h1>
-          <p className="text-gray-400 text-base leading-relaxed max-w-md mt-6">
-            Turn your free time into value. Earn real rewards by completing simple gigs with Gigcep.
-          </p>
+            <h1 className="text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight text-black">
+              Complete{" "}
+              <br />
+              earn rewards.
+              <br />
+              with Gigpec.
+            </h1>
+            <p className="text-gray-400 text-base leading-relaxed max-w-md mt-6">
+              Turn your free time into value. Earn real rewards by completing simple gigs with Gigcep.
+            </p>
           </div>
-          <Image
-          src={"/testing.png"}
-          height={1000}
-          width={1000}
-          alt=""
-          />
+          <div className="flex flex-row ml-6 mt-3">
+            <div className="-rotate-6">
+              <StampCard />
+            </div>
+            <div className="ml-4 mt-2 rotate-3">
+              <StockCard />
+            </div>
+            <div className="relative ml-3 w-72">
+              <div className="absolute rotate-12">
+                <ProposalCard />
+              </div>
+              <div className="absolute -z-1 right-0 -rotate-12 mt-10">
+                <FriendsStackedCard />
+              </div>
+              <div className="absolute top-26 -rotate-6 -left-1">
+                <RebalanceTimerStatic />
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Phone Mockup — single, large, centered */}
-        <div className="relative z-20 flex items-end justify-center">
+        <div className="relative z-20 flex items-end justify-center mt-10">
           <div
             className="flex-shrink-0 relative"
             style={{
-              width: "1200px",
-              filter: "drop-shadow(0 40px 80px rgba(0,0,0,0.15))",
+              width: "1200px"
             }}
           >
             <Image
@@ -74,10 +95,10 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-      <section className="relative flex flex-col gap-y-26 w-full px-16 py-24 border-t border-zinc-100" style={{ backgroundColor: "#222121" }}>
+      <section className="relative flex flex-col gap-y-26 w-full px-16 py-24 border-t border-zinc-100" style={{ backgroundColor: "#FFFFFF" }}>
         <div className="max-w-7xl mx-auto">
           <div className="mb-12 max-w-2xl">
-            <h2 className="text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight">
+            <h2 className="text-4xl lg:text-5xl font-bold tracking-tight text-black leading-tight">
               Everything you need to start earning.
             </h2>
           </div>
@@ -86,13 +107,26 @@ export default function Home() {
 
         <div className="max-w-7xl mx-auto">
           <div className="mb-12 max-w-2xl">
-            <h2 className="text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight">
+            <h2 className="text-4xl lg:text-5xl font-bold tracking-tight text-black leading-tight">
               Everything you need to start earning.
             </h2>
           </div>
           <Sections2 />
         </div>
+
+        <div className="max-w-7xl mx-auto">
+          <div className="mb-12 max-w-2xl">
+            <h2 className="text-4xl lg:text-5xl font-bold tracking-tight text-black leading-tight">
+              Everything you need to start earning.
+            </h2>
+          </div>
+          <Sections3 />
+        </div>
       </section>
+
+      <div className="flex justify-center p-6" style={{ backgroundColor: "#222121" }}>
+        <Cta />
+      </div>
     </div>
   );
 }

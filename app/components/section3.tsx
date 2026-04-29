@@ -1,20 +1,20 @@
 import Image from 'next/image'
 import React from 'react'
 
-const Sections = () => {
+const Sections3 = () => {
     return (
         <>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
                 {/* Left: single tall card — soft lavender */}
                 <div
                     className="rounded-3xl p-10 flex flex-col gap-8 h-[600px]"
-                    style={{ backgroundColor: "#B5A9F3" }}
+                    style={{ backgroundColor: "#6B9CF4" }}
                 >
                     <div>
                         <h3 className="text-zinc-900 font-bold text-3xl leading-tight tracking-tight">
                             Complete daily gigs in seconds.
                         </h3>
-                        {/* <p className="text-gray-600  text-base mt-1 leading-relaxed max-w-md">
+                        {/* <p className="text-gray-100  text-base mt-1 leading-relaxed max-w-md">
                             Quick missions designed for spare moments — earn rewards while you wait, walk, or wind down.
                         </p> */}
                     </div>
@@ -42,13 +42,13 @@ const Sections = () => {
                     {/* Top right — dark charcoal */}
                     <div
                         className="flex flex-row rounded-3xl flex gap-6 overflow-hidden"
-                        style={{ backgroundColor: "#ECFB75" }}
+                        style={{ backgroundColor: "#27E97C" }}
                     >
                         <div className="w-1/2 w-full p-4">
                             <h3 className="text-black font-bold text-4xl leading-tight tracking-tight mt-3">
                                 Track points and streaks.
                             </h3>
-                            <p className="text-gray-600 text-sm mt-2 leading-relaxed">
+                            <p className="text-gray-700 text-sm mt-2 leading-relaxed">
                                 See your progress build up day by day.
                             </p>
                         </div>
@@ -73,13 +73,13 @@ const Sections = () => {
 
                     <div
                         className="flex flex-row rounded-3xl flex gap-6 overflow-hidden"
-                        style={{ backgroundColor: "#ece4d6" }}
+                        style={{ backgroundColor: "#E2DFFD" }}
                     >
                         <div className="w-1/2 w-full p-4">
                             <h3 className="text-black font-bold text-4xl leading-tight tracking-tight mt-3">
                                 Track points and streaks.
                             </h3>
-                            <p className="text-gray-00 text-sm mt-2 leading-relaxed">
+                            <p className="text-gray-700 text-sm mt-2 leading-relaxed">
                                 See your progress build up day by day.
                             </p>
                         </div>
@@ -107,4 +107,4 @@ const Sections = () => {
     )
 }
 
-export default Sections
+export default Sections3

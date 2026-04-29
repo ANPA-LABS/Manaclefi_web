@@ -14,12 +14,12 @@ const Sections2 = () => {
                         <h3 className="text-zinc-900 font-bold text-3xl leading-tight tracking-tight">
                             Complete daily gigs in seconds.
                         </h3>
-                        <p className="text-gray-100  text-base mt-1 leading-relaxed max-w-md">
+                        {/* <p className="text-gray-100  text-base mt-1 leading-relaxed max-w-md">
                             Quick missions designed for spare moments — earn rewards while you wait, walk, or wind down.
-                        </p>
+                        </p> */}
                     </div>
                     <div
-                        className="flex-shrink-0 relative"
+                        className="flex-shrink-0 relative mt-5"
                         style={{
                             width: "570px",
                             filter: "",
@@ -45,8 +45,8 @@ const Sections2 = () => {
                         style={{ backgroundColor: "#FFDADC" }}
                     >
                         <div className="w-1/2 w-full p-4">
-                            <h3 className="text-black font-bold text-3xl leading-tight tracking-tight mt-3">
-                                Track points & streaks.
+                            <h3 className="text-black font-bold text-4xl leading-tight tracking-tight mt-3">
+                                Track points and streaks.
                             </h3>
                             <p className="text-gray-700 text-sm mt-2 leading-relaxed">
                                 See your progress build up day by day.
@@ -76,8 +76,8 @@ const Sections2 = () => {
                         style={{ backgroundColor: "#E9E8EA" }}
                     >
                         <div className="w-1/2 w-full p-4">
-                            <h3 className="text-black font-bold text-3xl leading-tight tracking-tight mt-3">
-                                Track points & streaks.
+                            <h3 className="text-black font-bold text-4xl leading-tight tracking-tight mt-3">
+                                Track points and streaks.
                             </h3>
                             <p className="text-gray-700 text-sm mt-2 leading-relaxed">
                                 See your progress build up day by day.
