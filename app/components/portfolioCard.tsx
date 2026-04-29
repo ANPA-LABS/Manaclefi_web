@@ -80,14 +80,6 @@ export default function PortfolioCard() {
       fontFamily: '-apple-system, BlinkMacSystemFont, sans-serif',
       boxShadow: '0 8px 32px rgba(0,0,0,0.4)',
     }}>
-      {/* Shimmer */}
-      <style>{`@keyframes sheen{0%,100%{left:-60%}50%{left:120%}} .pc-sheen{animation:sheen 5s ease-in-out infinite}`}</style>
-      <div className="pc-sheen" style={{
-        position: 'absolute', top: 0, left: '-60%', width: '40%', height: '100%',
-        background: 'linear-gradient(105deg, transparent, rgba(255,255,255,0.12), transparent)',
-        pointerEvents: 'none', zIndex: 3,
-      }} />
-
       {/* Stamps — stock images + avatars scattered */}
       {stamps.map((stamp, i) => {
         const pos = positions[i]
