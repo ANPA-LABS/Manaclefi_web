@@ -1,82 +1,127 @@
 /**
- * PortfolioCard.tsx — Portfolio card with silver metallic gradient
+ * PortfolioCard.tsx — exact match to PortfolioCards.tsx card design
+ *
+ * CARD_W = SCREEN_W - 36 = 390-36 = 354, CARD_H = 354/1.586 = 223
+ * Made horizontal: W=354, H=223
+ *
+ * card: borderRadius:20, overflow:hidden, border:1px rgba(255,255,255,0.08)
+ * stamps: position:absolute, 40×40, borderRadius:20, opacity:0.92
+ *   scattered via seeded random positions (top/right grid + jitter + rotation)
+ * stampImage: 40×40 borderRadius:18
+ * bottomLeft: position:absolute, bottom:20, left:22
+ * balance: 34px 900 letterSpacing:-1.5 lineHeight:38
+ * name: 15px 400 letterSpacing:-0.1 marginTop:2
+ * Silver gradient: ['#3A3A3A','#A4A4A4','#606060','#CECECE','#8F8F8F','#464646','#696969']
  */
 
 import React from 'react'
 
-interface PortfolioCardProps {
-  name: string
-  balance: string
-  change: string
-  up: boolean
-  memberCount: number
-  members: string[] // initials
+// Exact from code: SCREEN_W=390, CARD_W=390-36=354, CARD_H=354/1.586=223
+const CARD_W = 354
+const CARD_H = Math.round(CARD_W / 1.586)  // 223
+
+const SILVER = ['#3A3A3A','#A4A4A4','#606060','#CECECE','#8F8F8F','#464646','#696969']
+
+// Seeded random — same as PortfolioCards.tsx
+function seededRand(seed: number) {
+  let s = seed
+  return () => { s = (s * 16807 + 0) % 2147483647; return (s - 1) / 2147483646 }
 }
 
-export default function PortfolioCard({ name, balance, change, up, memberCount, members }: PortfolioCardProps) {
+// Stamp positions — same grid logic as PortfolioCards.tsx
+function getPositions(count: number, seed: number) {
+  const PAD = 18, CELL = 56, GAP = 14
+  const cols = Math.floor((CARD_W - PAD * 2) / CELL)
+  const rows = Math.floor((CARD_H - PAD * 2) / CELL)
+  const cells: { col: number; row: number }[] = []
+  for (let r = 0; r < rows; r++) for (let c = 0; c < cols; c++) cells.push({ col: c, row: r })
+  const rand = seededRand(seed)
+  cells.sort(() => rand() - 0.5)
+  const rand2 = seededRand(seed + 999)
+  return cells.slice(0, count).map(({ col, row }) => ({
+    top:    PAD + row * CELL + Math.floor(rand2() * (GAP / 2)),
+    right:  PAD + col * CELL + Math.floor(rand2() * (GAP / 2)),
+    rotate: Math.floor(rand2() * 20) - 10,
+  }))
+}
+
+function gradCSS(stops: string[]) {
+  const step = 100 / (stops.length - 1)
+  return `linear-gradient(135deg, ${stops.map((c,i) => `${c} ${(i*step).toFixed(0)}%`).join(', ')})`
+}
+
+const STOCKS = [
+  { img: '/stock/aapl.png',  bg: '#555555' },
+  { img: '/stock/msft.png',  bg: '#0078d7' },
+  { img: '/stock/amaz.jpg',  bg: '#ff9900' },
+]
+const AVATARS = [
+  { img: '/avatar/avatar1.png' },
+  { img: '/avatar/avatar2.png' },
+  { img: '/avatar/avatar3.png' },
+]
+
+const stamps = [
+  ...STOCKS.map(s => ({ type: 'stock' as const, img: s.img, bg: s.bg })),
+  ...AVATARS.map(a => ({ type: 'person' as const, img: a.img, bg: 'transparent' })),
+]
+const positions = getPositions(stamps.length, 42)
+
+export default function PortfolioCard() {
   return (
     <div style={{
-      background: 'linear-gradient(135deg, #6b7280 0%, #d1d5db 35%, #9ca3af 60%, #e5e7eb 100%)',
-      borderRadius: 22,
-      padding: '22px 22px 20px',
-      width: 300,
-      position: 'relative',
+      width: CARD_W,
+      height: CARD_H,
+      borderRadius: 20,
       overflow: 'hidden',
-      boxShadow: '0 12px 40px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.4)',
-      fontFamily: 'Georgia, serif',
+      background: gradCSS(SILVER),
+      border: '1px solid rgba(255,255,255,0.08)',
+      position: 'relative',
+      fontFamily: '-apple-system, BlinkMacSystemFont, sans-serif',
+      boxShadow: '0 8px 32px rgba(0,0,0,0.4)',
     }}>
-      {/* Metallic sheen overlay */}
-      <div style={{
+      {/* Shimmer */}
+      <style>{`@keyframes sheen{0%,100%{left:-60%}50%{left:120%}} .pc-sheen{animation:sheen 5s ease-in-out infinite}`}</style>
+      <div className="pc-sheen" style={{
         position: 'absolute', top: 0, left: '-60%', width: '40%', height: '100%',
-        background: 'linear-gradient(105deg, transparent, rgba(255,255,255,0.35), transparent)',
-        pointerEvents: 'none',
-        animation: 'sheen 4s ease-in-out infinite',
+        background: 'linear-gradient(105deg, transparent, rgba(255,255,255,0.12), transparent)',
+        pointerEvents: 'none', zIndex: 3,
       }} />
-      <style>{`@keyframes sheen { 0%,100%{left:-60%} 50%{left:120%} }`}</style>
 
-      {/* Header */}
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 20 }}>
-        <div>
-          <div style={{ color: 'rgba(0,0,0,0.5)', fontSize: 11, fontWeight: 600, textTransform: 'uppercase', letterSpacing: 1 }}>Portfolio</div>
-          <div style={{ color: 'rgba(0,0,0,0.85)', fontSize: 17, fontWeight: 800, marginTop: 2 }}>{name}</div>
-        </div>
-        <div style={{
-          background: up ? 'rgba(0,100,50,0.2)' : 'rgba(150,0,0,0.2)',
-          borderRadius: 20, padding: '4px 10px'
-        }}>
-          <span style={{ color: up ? '#065f46' : '#991b1b', fontSize: 12, fontWeight: 800 }}>
-            {up ? '▲' : '▼'} {change}
-          </span>
-        </div>
-      </div>
+      {/* Stamps — stock images + avatars scattered */}
+      {stamps.map((stamp, i) => {
+        const pos = positions[i]
+        if (!pos) return null
+        return (
+          <div key={i} style={{
+            position: 'absolute',
+            top: pos.top,
+            right: pos.right,
+            width: 40,
+            height: 40,
+            borderRadius: 20,
+            overflow: 'hidden',
+            opacity: 0.92,
+            zIndex: 1,
+            backgroundColor: stamp.type === 'stock' ? stamp.bg : 'transparent',
+            transform: `rotate(${pos.rotate}deg)`,
+          }}>
+            {/* stampImage: 40×40, borderRadius:18 */}
+            <img src={stamp.img} alt="" style={{ width: 40, height: 40, borderRadius: 18, objectFit: 'cover', display: 'block' }} />
+          </div>
+        )
+      })}
 
-      {/* Balance */}
-      <div style={{ marginBottom: 22 }}>
-        <div style={{ color: 'rgba(0,0,0,0.45)', fontSize: 11, marginBottom: 4 }}>Total Value</div>
-        <div style={{ color: 'rgba(0,0,0,0.9)', fontSize: 32, fontWeight: 800, letterSpacing: -1 }}>{balance}</div>
-      </div>
-
-      {/* Members */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-        <div style={{ display: 'flex' }}>
-          {members.slice(0, 4).map((m, i) => (
-            <div key={i} style={{
-              width: 28, height: 28, borderRadius: '50%',
-              background: ['#9b72f0','#60aaff','#ffaa60','#50d8d8'][i % 4],
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-              fontSize: 11, fontWeight: 800, color: '#fff',
-              border: '2px solid rgba(255,255,255,0.6)',
-              marginLeft: i > 0 ? -8 : 0,
-              zIndex: 4 - i,
-              position: 'relative',
-            }}>
-              {m}
-            </div>
-          ))}
+      {/* bottomLeft: position:absolute, bottom:20, left:22 */}
+      <div style={{ position: 'absolute', bottom: 20, left: 22, zIndex: 2 }}>
+        {/* balance: 34px 900 letterSpacing:-1.5 lineHeight:38 */}
+        <div style={{ color: '#111', fontSize: 34, fontWeight: 900, letterSpacing: -1.5, lineHeight: '38px' }}>
+          $84,320
         </div>
-        <span style={{ color: 'rgba(0,0,0,0.55)', fontSize: 12, fontWeight: 600 }}>
-          {memberCount} member{memberCount !== 1 ? 's' : ''}
-        </span>
+        {/* name: 15px 400 letterSpacing:-0.1 marginTop:2 */}
+        <div style={{ color: 'rgba(0,0,0,0.45)', fontSize: 15, fontWeight: 400, letterSpacing: -0.1, marginTop: 2 }}>
+          Growth Fund
+        </div>
       </div>
     </div>
   )

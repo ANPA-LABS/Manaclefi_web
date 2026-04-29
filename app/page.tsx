@@ -9,6 +9,7 @@ import RebalanceTimer from "./components/rebalanceTimer";
 import RebalanceTimerStatic from "./components/rebalanceTimerStatic";
 import Sections3 from "./components/section3";
 import Cta from "./components/cta";
+import PortfolioCard from "./components/portfolioCard";
 
 
 export default function Home() {
@@ -68,6 +69,9 @@ export default function Home() {
               </div>
               <div className="absolute top-26 -rotate-6 -left-1">
                 <RebalanceTimerStatic />
+              </div>
+               <div className="absolute -rotate-30 left-80">
+                <PortfolioCard />
               </div>
             </div>
           </div>
