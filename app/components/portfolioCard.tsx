@@ -56,9 +56,9 @@ const STOCKS = [
   { img: '/stock/amaz.jpg',  bg: '#ff9900' },
 ]
 const AVATARS = [
-  { img: '/avatar/avatar1.png' },
-  { img: '/avatar/avatar2.png' },
   { img: '/avatar/avatar3.png' },
+  { img: '/avatar/avatar5.png' },
+  { img: '/avatar/avatar4.png' },
 ]
 
 const stamps = [

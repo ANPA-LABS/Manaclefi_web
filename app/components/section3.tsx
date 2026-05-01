@@ -4,10 +4,10 @@ import React from 'react'
 const Sections3 = () => {
     return (
         <>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 h-max">
                 {/* Left: single tall card — soft lavender */}
                 <div
-                    className="rounded-3xl p-10 flex flex-col gap-8 h-[600px]"
+                    className="rounded-3xl p-10 flex flex-col gap-8 h-max"
                     style={{ backgroundColor: "#6B9CF4" }}
                 >
                     <div>
@@ -18,30 +18,29 @@ const Sections3 = () => {
                             Quick missions designed for spare moments — earn rewards while you wait, walk, or wind down.
                         </p> */}
                     </div>
-                    <div
-                        className="flex-shrink-0 relative mt-5"
-                        style={{
-                            width: "570px",
-                            filter: "",
-                        }}
-                    >
-                        <Image
-                            src="/DA1.png"
-                            alt="App screen - Home"
-                            width={600}
-                            height={600}
-                            className="w-full h-auto object-contain"
-                            priority
-                            unoptimized
-                        />
+                    <div className='flex justify-center w-full'>
+
+                        <div
+                            className="mt-5 w-[5000px] xl:w-[400px]"
+                        >
+                            <Image
+                                src="/128.png"
+                                alt="App screen - Home"
+                                width={100}
+                                height={100}
+                                className="w-full h-auto object-contain"
+                                priority
+                                unoptimized
+                            />
+                        </div>
                     </div>
                 </div>
 
                 {/* Right: two stacked equal cards */}
-                <div className="grid grid-rows-2 gap-5 h-[600px]">
+                <div className="grid grid-rows-2 gap-5 h-max">
                     {/* Top right — dark charcoal */}
                     <div
-                        className="flex flex-row rounded-3xl flex gap-6 overflow-hidden"
+                        className="flex flex-col xl:flex-row rounded-3xl flex gap-6 overflow-hidden px-1 h-max"
                         style={{ backgroundColor: "#27E97C" }}
                     >
                         <div className="w-1/2 w-full p-4">
@@ -53,17 +52,13 @@ const Sections3 = () => {
                             </p>
                         </div>
                         <div
-                            className="w-1/2 flex-shrink-0 mt-6"
-                            style={{
-                                width: "370px",
-                                filter: "",
-                            }}
+                            className="w-1/2 w-fit xl:w-[500px]"
                         >
                             <Image
-                                src="/DA1B12.png"
+                                src="/180.png"
                                 alt="App screen - Home"
-                                width={600}
-                                height={600}
+                                width={100}
+                                height={100}
                                 className="w-full h-auto object-contain"
                                 priority
                                 unoptimized
@@ -72,7 +67,7 @@ const Sections3 = () => {
                     </div>
 
                     <div
-                        className="flex flex-row rounded-3xl flex gap-6 overflow-hidden"
+                        className="flex flex-col xl:flex-row rounded-3xl flex gap-6 overflow-hidden px-1 h-max"
                         style={{ backgroundColor: "#E2DFFD" }}
                     >
                         <div className="w-1/2 w-full p-4">
@@ -84,17 +79,13 @@ const Sections3 = () => {
                             </p>
                         </div>
                         <div
-                            className="w-1/2 flex-shrink-0 mt-6"
-                            style={{
-                                width: "370px",
-                                filter: "",
-                            }}
+                            className="w-1/2 w-fit xl:w-[500px]"
                         >
                             <Image
-                                src="/DA1B22.png"
+                                src="/180.png"
                                 alt="App screen - Home"
-                                width={600}
-                                height={600}
+                                width={100}
+                                height={100}
                                 className="w-full h-auto object-contain"
                                 priority
                                 unoptimized

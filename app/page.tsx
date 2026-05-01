@@ -40,7 +40,7 @@ export default function Home() {
       <section className="relative w-full pt-10 bg-white mt-4" style={{ borderTopLeftRadius: 45, borderTopRightRadius: 45 }}>
 
         {/* Headline */}
-        <div className="relative z-10 px-10 flex flex-row">
+        <div className="relative z-10 px-10 flex flex-col xl:flex-row">
           <div>
             <h1 className="text-5xl lg:text-6xl font-bold leading-[1.05] tracking-tight text-black">
               Complete{" "}
@@ -53,24 +53,24 @@ export default function Home() {
               Turn your free time into value. Earn real rewards by completing simple gigs with Gigcep.
             </p>
           </div>
-          <div className="flex flex-row ml-6 mt-3">
-            <div className="-rotate-6">
+          <div className="flex flex-col xl:flex-row ml-0 xl:ml-6 mt-16 xl:mt-3 items-center xl:items-start">
+            <div className="-rotate-6 -ml-5 xl:ml-0">
               <StampCard />
             </div>
             <div className="ml-4 mt-2 rotate-3">
               <StockCard />
             </div>
-            <div className="relative ml-3 w-72">
-              <div className="absolute rotate-12">
+            <div className="relative ml-0 xl:ml-3 w-72">
+              <div className="absolute rotate-12 -ml-5 xl:ml-0">
                 <ProposalCard />
               </div>
-              <div className="absolute -z-1 right-0 -rotate-12 mt-10">
+              <div className="absolute -z-1 left-0 xl:right-0 -rotate-12 mt-10">
                 <FriendsStackedCard />
               </div>
-              <div className="absolute top-26 -rotate-6 -left-1">
+              <div className="absolute top-26 ml-24 xl:ml-40 -rotate-6 -left-1">
                 <RebalanceTimerStatic />
               </div>
-               <div className="absolute -rotate-30 left-80">
+               <div className="absolute -rotate-30 left-30 xl:left-80 mt-40 xl:mt-0">
                 <PortfolioCard />
               </div>
             </div>
@@ -80,16 +80,13 @@ export default function Home() {
         {/* Phone Mockup — single, large, centered */}
         <div className="relative z-20 flex items-end justify-center mt-10">
           <div
-            className="flex-shrink-0 relative"
-            style={{
-              width: "1200px"
-            }}
+            className="w-max"
           >
             <Image
               src="/kadi.png"
               alt="App screen - Home"
-              width={2400}
-              height={6000}
+              width={100}
+              height={100}
               className="w-full h-auto object-contain"
               priority
               unoptimized
@@ -99,7 +96,7 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-      <section className="relative flex flex-col gap-y-26 w-full px-16 py-24 border-t border-zinc-100" style={{ backgroundColor: "#FFFFFF" }}>
+      <section className="relative flex flex-col gap-y-26 w-full px-6 lg:px-16 py-24 border-t border-zinc-100" style={{ backgroundColor: "#FFFFFF" }}>
         <div className="max-w-7xl mx-auto">
           <div className="mb-12 max-w-2xl">
             <h2 className="text-4xl lg:text-5xl font-bold tracking-tight text-black leading-tight">
