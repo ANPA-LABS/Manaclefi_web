@@ -9,17 +9,17 @@ const Cta = () => {
             <div className='flex flex-col xl:flex-row w-max h-max bg-white rounded-2xl overflow-hidden mt-26'>
 
                 <div className='w-1/4 flex flex-row xl:flex-col gap-y-22'>
-                    <div className='p-2 -mt-16 ml-0 xl:-ml-33 -rotate-6'>
-                        <StampCard />
+                    <div className='p-2 -mt-10 lg:-mt-16 -ml-50 xl:-ml-33 -rotate-6'>
+                        <StampCard packId="bigtech" />
                     </div>
                     <div className='p-2 -mt-12 ml-0 xl:-ml-28'>
-                        <StampCard />
+                        <StampCard packId="highgrowth" />
                     </div>
                     <div className='p-2 -mt-8 ml-0 xl:-ml-33 rotate-12'>
-                        <StampCard />
+                        <StampCard packId="defi" />
                     </div>
                     <div className='p-2 -mt-8 ml-0 xl:-ml-33 rotate-12'>
-                        <StampCard />
+                        <StampCard packId="datacenter" />
                     </div>
                 </div>
                 <div className='flex items-center justify-center w-2/4 my-6 xl:my-0 w-full ml-0 xl:ml-10'>
@@ -41,16 +41,16 @@ const Cta = () => {
                 </div>
                 <div className='w-1/4 flex flex-row  xl:flex-col xl:overflow-hidden gap-10 mt-10 xl:mt-0 ml-1 lg:ml-10'>
                         <div className='ml-0 xl:ml-16 -mt-3 -rotate-12 xl:-rotate-30 mt-0 -mt-10'>
-                            <StockCardSingle />
+                            <StockCardSingle ticker='AMZN'/>
                         </div>
                         <div className='ml-0 xl:ml-10 mt-0 xl:mt-2 -rotate-40 xl:rotate-0'>
-                            <StockCardSingle />
+                            <StockCardSingle ticker='TSLA'/>
                         </div>
                         <div className='ml-0 xl:ml-16 mt-0 xl:mt-8 rotate-0'>
-                            <StockCardSingle />
+                            <StockCardSingle ticker='SOL'/>
                         </div>
                          <div className='ml-0 xl:ml-16 mt-0 xl:mt-8 -rotate-25'>
-                            <StockCardSingle />
+                            <StockCardSingle ticker='GOOGL'/>
                         </div>
                 </div>
             </div>

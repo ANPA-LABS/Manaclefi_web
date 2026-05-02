@@ -51,7 +51,7 @@ export default function Home() {
             </p>
           </div>
           <div className="flex flex-col xl:flex-row ml-0 xl:ml-6 mt-6 xl:mt-3 items-center xl:items-start">
-            <div className="-rotate-6 -ml-5 xl:ml-0">
+            <div className="-rotate-6">
               <StampCard />
             </div>
             <div className="ml-4 mt-2 rotate-3">
@@ -65,10 +65,13 @@ export default function Home() {
                 <FriendsStackedCard />
               </div>
               <div className="absolute top-24 xl:top-30 ml-24 xl:ml-42 -rotate-20">
-                <RebalanceTimerStatic />
+                <RebalanceTimer />
               </div>
-              <div className="absolute -rotate-40 left-44 xl:left-80 mt-20 xl:mt-0">
-                <PortfolioCard />
+              <div className="absolute -rotate-40 xl:-rotate-30 left-44 xl:left-75 mt-20 xl:mt-0">
+                <PortfolioCard variant="silver"/>
+              </div>
+              <div className="hidden xl:flex absolute rotate-40 left-44 xl:left-160 top-10 xl:mt-0">
+                <PortfolioCard variant="pink"/>
               </div>
             </div>
           </div>

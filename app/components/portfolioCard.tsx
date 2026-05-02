@@ -1,34 +1,31 @@
 /**
- * PortfolioCard.tsx — exact match to PortfolioCards.tsx card design
- *
- * CARD_W = SCREEN_W - 36 = 390-36 = 354, CARD_H = 354/1.586 = 223
- * Made horizontal: W=354, H=223
- *
- * card: borderRadius:20, overflow:hidden, border:1px rgba(255,255,255,0.08)
- * stamps: position:absolute, 40×40, borderRadius:20, opacity:0.92
- *   scattered via seeded random positions (top/right grid + jitter + rotation)
- * stampImage: 40×40 borderRadius:18
- * bottomLeft: position:absolute, bottom:20, left:22
- * balance: 34px 900 letterSpacing:-1.5 lineHeight:38
- * name: 15px 400 letterSpacing:-0.1 marginTop:2
- * Silver gradient: ['#3A3A3A','#A4A4A4','#606060','#CECECE','#8F8F8F','#464646','#696969']
+ * PortfolioCard.tsx
+ * Props: variant = 'silver' | 'pink'
+ * Usage:
+ *   <PortfolioCard variant="silver" />
+ *   <PortfolioCard variant="pink" />
  */
 
 import React from 'react'
 
-// Exact from code: SCREEN_W=390, CARD_W=390-36=354, CARD_H=354/1.586=223
 const CARD_W = 354
 const CARD_H = Math.round(CARD_W / 1.586)  // 223
 
-const SILVER = ['#3A3A3A','#A4A4A4','#606060','#CECECE','#8F8F8F','#464646','#696969']
+const GRADIENTS = {
+  silver: ['#3A3A3A','#A4A4A4','#606060','#CECECE','#8F8F8F','#464646','#696969'],
+  pink:   ['#4a1a2a','#8b3a5a','#c87494','#e4a0b8','#c87494','#8b3a5a','#c07090'],
+}
 
-// Seeded random — same as PortfolioCards.tsx
+const CARD_DATA = {
+  silver: { balance: '$84,320', name: 'Growth Fund',     textColor: '#111',  mutedColor: 'rgba(0,0,0,0.45)'  },
+  pink:   { balance: '$52,810', name: 'High Return',     textColor: '#fff',  mutedColor: 'rgba(255,255,255,0.55)' },
+}
+
 function seededRand(seed: number) {
   let s = seed
   return () => { s = (s * 16807 + 0) % 2147483647; return (s - 1) / 2147483646 }
 }
 
-// Stamp positions — same grid logic as PortfolioCards.tsx
 function getPositions(count: number, seed: number) {
   const PAD = 18, CELL = 56, GAP = 14
   const cols = Math.floor((CARD_W - PAD * 2) / CELL)
@@ -39,80 +36,76 @@ function getPositions(count: number, seed: number) {
   cells.sort(() => rand() - 0.5)
   const rand2 = seededRand(seed + 999)
   return cells.slice(0, count).map(({ col, row }) => ({
-    top:    PAD + row * CELL + Math.floor(rand2() * (GAP / 2)),
-    right:  PAD + col * CELL + Math.floor(rand2() * (GAP / 2)),
+    top:   PAD + row * CELL + Math.floor(rand2() * (GAP / 2)),
+    right: PAD + col * CELL + Math.floor(rand2() * (GAP / 2)),
     rotate: Math.floor(rand2() * 20) - 10,
   }))
 }
 
 function gradCSS(stops: string[]) {
   const step = 100 / (stops.length - 1)
-  return `linear-gradient(135deg, ${stops.map((c,i) => `${c} ${(i*step).toFixed(0)}%`).join(', ')})`
+  return `linear-gradient(135deg, ${stops.map((c, i) => `${c} ${(i * step).toFixed(0)}%`).join(', ')})`
 }
 
-const STOCKS = [
-  { img: '/stock/aapl.png',  bg: '#555555' },
-  { img: '/stock/msft.png',  bg: '#0078d7' },
-  { img: '/stock/amaz.jpg',  bg: '#ff9900' },
-]
-const AVATARS = [
-  { img: '/avatar/avatar3.png' },
-  { img: '/avatar/avatar5.png' },
-  { img: '/avatar/avatar4.png' },
-]
+const STAMPS = {
+  silver: [
+    { type: 'stock' as const, img: '/stock/aapl.png',   bg: '#555555' },
+    { type: 'stock' as const, img: '/stock/msft.png',   bg: '#0078d7' },
+    { type: 'stock' as const, img: '/stock/amaz.jpg',   bg: '#ff9900' },
+    { type: 'person' as const, img: '/avatar/avatar3.png', bg: 'transparent' },
+    { type: 'person' as const, img: '/avatar/avatar5.png', bg: 'transparent' },
+  ],
+  pink: [
+    { type: 'stock' as const, img: '/stock/nvidia.png',   bg: '#76b900' },
+    { type: 'stock' as const, img: '/stock/tsla.png',   bg: '#c0392b' },
+    { type: 'stock' as const, img: '/stock/sol.jpg',    bg: '#9945ff' },
+    { type: 'person' as const, img: '/avatar/avatar1.png', bg: 'transparent' },
+    { type: 'person' as const, img: '/avatar/avatar5.png', bg: 'transparent' },
+  ],
+}
 
-const stamps = [
-  ...STOCKS.map(s => ({ type: 'stock' as const, img: s.img, bg: s.bg })),
-  ...AVATARS.map(a => ({ type: 'person' as const, img: a.img, bg: 'transparent' })),
-]
-const positions = getPositions(stamps.length, 42)
+interface Props { variant?: 'silver' | 'pink' }
 
-export default function PortfolioCard() {
+export default function PortfolioCard({ variant = 'silver' }: Props) {
+  const grad     = GRADIENTS[variant]
+  const data     = CARD_DATA[variant]
+  const stamps   = STAMPS[variant]
+  const seed     = variant === 'silver' ? 42 : 99
+  const positions = getPositions(stamps.length, seed)
+
   return (
     <div style={{
-      width: CARD_W,
-      height: CARD_H,
-      borderRadius: 20,
-      overflow: 'hidden',
-      background: gradCSS(SILVER),
+      width: CARD_W, height: CARD_H, borderRadius: 20, overflow: 'hidden',
+      background: gradCSS(grad),
       border: '1px solid rgba(255,255,255,0.08)',
       position: 'relative',
       fontFamily: '-apple-system, BlinkMacSystemFont, sans-serif',
       boxShadow: '0 8px 32px rgba(0,0,0,0.4)',
     }}>
-      {/* Stamps — stock images + avatars scattered */}
+      {/* Stamps */}
       {stamps.map((stamp, i) => {
         const pos = positions[i]
         if (!pos) return null
         return (
           <div key={i} style={{
-            position: 'absolute',
-            top: pos.top,
-            right: pos.right,
-            width: 40,
-            height: 40,
-            borderRadius: 20,
-            overflow: 'hidden',
-            opacity: 0.92,
-            zIndex: 1,
-            backgroundColor: stamp.type === 'stock' ? stamp.bg : 'transparent',
+            position: 'absolute', top: pos.top, right: (pos as any).right,
+            width: 40, height: 40, borderRadius: 20, overflow: 'hidden',
+            opacity: 0.92, zIndex: 1,
+            backgroundColor: stamp.bg,
             transform: `rotate(${pos.rotate}deg)`,
           }}>
-            {/* stampImage: 40×40, borderRadius:18 */}
             <img src={stamp.img} alt="" style={{ width: 40, height: 40, borderRadius: 18, objectFit: 'cover', display: 'block' }} />
           </div>
         )
       })}
 
-      {/* bottomLeft: position:absolute, bottom:20, left:22 */}
+      {/* Bottom left */}
       <div style={{ position: 'absolute', bottom: 20, left: 22, zIndex: 2 }}>
-        {/* balance: 34px 900 letterSpacing:-1.5 lineHeight:38 */}
-        <div style={{ color: '#111', fontSize: 34, fontWeight: 900, letterSpacing: -1.5, lineHeight: '38px' }}>
-          $84,320
+        <div style={{ color: data.textColor, fontSize: 34, fontWeight: 900, letterSpacing: -1.5, lineHeight: '38px' }}>
+          {data.balance}
         </div>
-        {/* name: 15px 400 letterSpacing:-0.1 marginTop:2 */}
-        <div style={{ color: 'rgba(0,0,0,0.45)', fontSize: 15, fontWeight: 400, letterSpacing: -0.1, marginTop: 2 }}>
-          Growth Fund
+        <div style={{ color: data.mutedColor, fontSize: 15, fontWeight: 400, letterSpacing: -0.1, marginTop: 2 }}>
+          {data.name}
         </div>
       </div>
     </div>

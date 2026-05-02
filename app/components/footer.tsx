@@ -16,9 +16,10 @@ const Footer = () => {
             <div className='flex justify-center mt-2'>
                 <Image
                     src={"/Bondb.svg"}
-                    height={1400}
-                    width={1400}
-                    alt='' />
+                    height={1000}
+                    width={1000}
+                    alt=''
+                    />
             </div>
         </div>
     )

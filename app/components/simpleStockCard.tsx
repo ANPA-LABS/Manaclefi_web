@@ -4,6 +4,19 @@ import React from 'react'
 
 const TILE = 180
 
+// ── Static stock data (mirrors stockData.ts for web) ────────────────────────
+const STOCK_DATA: Record<string, { name: string; price: string; change: string; up: boolean; img: string; spark: number[] }> = {
+  GOGL: { name: 'Google',  price: '$178.40', change: '+1.4%', up: true,  img: '/stock/gogl.png', spark: [165,168,172,170,175,174,178,176,179,178] },
+  TSLA: { name: 'Tesla',   price: '$391.97', change: '+2.8%', up: true,  img: '/stock/tsla.png', spark: [370,375,381,377,383,378,374,371,378,392] },
+  AMZN: { name: 'Amazon',  price: '$268.43', change: '-0.3%', up: false, img: '/stock/amaz.jpg', spark: [271,268,271,268,270,266,269,266,268,268] },
+  SOL:  { name: 'Solana',  price: '$148.20', change: '+5.2%', up: true,  img: '/stock/sol.jpg',  spark: [120,128,125,135,132,140,138,144,146,148] },
+}
+
+// ── Green/Red gradient palettes ──────────────────────────────────────────────
+const GREEN = ['#22c068','#0a1a10']
+const RED   = ['#e84040','#1a0808']
+
+// ── Spark SVG ────────────────────────────────────────────────────────────────
 function Spark({ data, up, w }: { data: number[]; up: boolean; w: number }) {
   const H = 48
   const min = Math.min(...data), max = Math.max(...data), rng = max - min || 1
@@ -34,19 +47,12 @@ function Spark({ data, up, w }: { data: number[]; up: boolean; w: number }) {
   )
 }
 
-const stock = {
-  ticker: 'SPOT',
-  name: 'Spotify',
-  price: '$412.60',
-  change: '+3.2%',
-  up: true,
-  img: '/stock/spot.png',
-  spark: [370, 378, 385, 375, 390, 388, 398, 393, 400, 412],
-}
+// ── Component ────────────────────────────────────────────────────────────────
+interface Props { ticker: string }
 
-export default function StockCardSingle() {
-  const g0 = stock.up ? '#22c068' : '#e84040'
-  const g1 = stock.up ? '#0a1a10' : '#1a0808'
+export default function StockCardSingle({ ticker }: Props) {
+  const stock = STOCK_DATA[ticker] ?? STOCK_DATA['GOGL']
+  const [g0, g1] = stock.up ? GREEN : RED
 
   return (
     <div style={{
@@ -63,11 +69,11 @@ export default function StockCardSingle() {
           backgroundColor: '#2a2a2a', overflow: 'hidden', flexShrink: 0,
           display: 'flex', alignItems: 'center', justifyContent: 'center',
         }}>
-          <img src={stock.img} alt={stock.ticker} style={{ width: 38, height: 38, objectFit: 'cover', display: 'block' }} />
+          <img src={stock.img} alt={ticker} style={{ width: 38, height: 38, objectFit: 'cover', display: 'block' }} />
         </div>
         <div>
           <div style={{ color: '#fff', fontSize: 16, fontWeight: 700, letterSpacing: -0.2 }}>{stock.name}</div>
-          <div style={{ color: 'rgba(255,255,255,0.45)', fontSize: 10, marginTop: 1 }}>{stock.ticker}</div>
+          <div style={{ color: 'rgba(255,255,255,0.45)', fontSize: 10, marginTop: 1 }}>{ticker}</div>
         </div>
       </div>
 
@@ -84,3 +90,9 @@ export default function StockCardSingle() {
     </div>
   )
 }
+
+// ── Usage example ─────────────────────────────────────────────────────────────
+// <StockCardSingle ticker="AMZN" />
+// <StockCardSingle ticker="TSLA" />
+// <StockCardSingle ticker="GOGL" />
+// <StockCardSingle ticker="NVDA" />
