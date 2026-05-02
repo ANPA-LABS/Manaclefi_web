@@ -80,8 +80,7 @@ export default function PortfolioCard({ variant = 'silver' }: Props) {
       border: '1px solid rgba(255,255,255,0.08)',
       position: 'relative',
       fontFamily: '-apple-system, BlinkMacSystemFont, sans-serif',
-      boxShadow: '0 8px 32px rgba(0,0,0,0.4)',
-    }}>
+    }} className='shadow-none xl:shadow-2xl/35'>
       {/* Stamps */}
       {stamps.map((stamp, i) => {
         const pos = positions[i]

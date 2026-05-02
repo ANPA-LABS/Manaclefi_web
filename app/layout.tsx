@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono , Stack_Sans_Text } from "next/font/google";
+import { Geist, Geist_Mono, Stack_Sans_Text } from "next/font/google";
 import "./globals.css";
 import Footer from "./components/footer";
+import { Toaster } from "@/components/ui/sonner";
 
 const bowby_one_sc = Stack_Sans_Text({
   subsets: ["latin"],
-  weight : "400"
+  weight: "400"
 });
 
 export const metadata: Metadata = {
@@ -20,13 +21,15 @@ export default function RootLayout({
 }>) {
   return (
     <>
-    <html
-      lang="en"
-      className={`${bowby_one_sc.className} h-full antialiased`}
+      <html
+        lang="en"
+        className={`${bowby_one_sc.className} h-full antialiased`}
       >
-      <body className="min-h-full flex flex-col">{children}</body>
-    </html>
-      <Footer/>
-      </>
+        <body className="min-h-full flex flex-col">{children}
+          <Toaster />
+        </body>
+      </html>
+      <Footer />
+    </>
   );
 }

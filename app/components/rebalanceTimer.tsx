@@ -62,7 +62,7 @@ export default function RebalanceTimer() {
         </div>
       </div>
       {/* label: rgba(255,255,255,0.45) 10px 600 letterSpacing:0.3 */}
-      <span style={{ color: 'rgba(255,255,255,0.45)', fontSize: 10, fontWeight: 600, letterSpacing: 0.3, marginTop: 2 }}>
+      <span style={{ color: '#FFFFFF', fontSize: 10, fontWeight: 600, letterSpacing: 0.3, marginTop: 2 }}>
         Next rebalance
       </span>
     </div>
