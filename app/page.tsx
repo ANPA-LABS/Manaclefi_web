@@ -17,16 +17,22 @@ export default function Home() {
   return (
     <div className="min-h-screen text-zinc-900  overflow-hidden">
       {/* Navbar */}
-      <nav className="flex items-center justify-between px-4 xl:px-10 py-5 relative z-30 mt-6">
-        <div className="flex items-center gap-4">
-          <div className="w-14 h-14 rounded-md bg-zinc-900 flex items-center justify-center">
-            <svg width="30" height="30" viewBox="0 0 18 18" fill="none">
-              <path d="M9 2L15 6V12L9 16L3 12V6L9 2Z" fill="white" opacity="0.95" />
-            </svg>
+     
+        <div className="flex flex-row items-center justify-center xl:justify-start px-8 gap-1.5 py-3">
+          <div>
+            <Image
+              width={100}
+              height={100}
+              src={"/logo.png"}
+              alt=""
+              className="rounded-xl"
+            />
           </div>
-          <span className="text-white font-semibold tracking-tight text-5xl lg:text-6xl">Manacle</span>
+          <div className="mt-1">
+          <h1 className="text-white font-semibold tracking-tight text-5xl lg:text-5xl mt-2">Manacle</h1>
+          </div>
         </div>
-      </nav>
+    
 
       <section className="w-full pt-10 bg-white mt-4 pb-36 overflow-hidden" style={{ borderTopLeftRadius: 45, borderTopRightRadius: 45 }}>
 
