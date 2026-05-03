@@ -24,7 +24,7 @@ const Sections3 = () => {
                             className="mt-5 w-[5000px] xl:w-[400px]"
                         >
                             <Image
-                                src="/128.png"
+                                src="/C1L.png"
                                 alt="App screen - Home"
                                 width={100}
                                 height={100}
@@ -55,7 +55,7 @@ const Sections3 = () => {
                             className="w-1/2 w-fit xl:w-[500px]"
                         >
                             <Image
-                                src="/180.png"
+                                src="/C1R1.png"
                                 alt="App screen - Home"
                                 width={100}
                                 height={100}
@@ -67,14 +67,14 @@ const Sections3 = () => {
                     </div>
 
                     <div
-                        className="flex flex-col xl:flex-row rounded-3xl flex gap-6 overflow-hidden px-1 h-max"
+                        className="flex flex-col-reverse xl:flex-col items-end xl:flex-row rounded-3xl flex gap-6 overflow-hidden px-1 h-max"
                         style={{ backgroundColor: "#E2DFFD" }}
                     >
                         <div className="w-1/2 w-full p-4">
-                            <h3 className="text-black font-bold text-4xl leading-tight tracking-tight mt-3">
+                            <h3 className="text-black font-bold text-4xl leading-tight tracking-tight mb-3">
                                 Track points and streaks.
                             </h3>
-                            <p className="text-gray-700 text-sm mt-2 leading-relaxed">
+                            <p className="text-gray-700 text-sm mb-2 leading-relaxed">
                                 See your progress build up day by day.
                             </p>
                         </div>
@@ -82,7 +82,7 @@ const Sections3 = () => {
                             className="w-1/2 w-fit xl:w-[500px]"
                         >
                             <Image
-                                src="/180.png"
+                                src="/C1R2.png"
                                 alt="App screen - Home"
                                 width={100}
                                 height={100}

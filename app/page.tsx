@@ -10,6 +10,7 @@ import RebalanceTimerStatic from "./components/rebalanceTimerStatic";
 import Sections3 from "./components/section3";
 import Cta from "./components/cta";
 import PortfolioCard from "./components/portfolioCard";
+import Sections4 from "./components/section4";
 
 
 export default function Home() {
@@ -70,12 +71,12 @@ export default function Home() {
         </div>
 
         {/* Phone Mockup — single, large, centered */}
-        <div className="hidden lg:flex justify-center mt-45 xl:mt-20 w-full">
+        <div className="hidden lg:flex justify-center mt-45 xl:mt-30 w-full">
           <Image
-            src="/kadi.png"
+            src="/front.png"
             alt="App screen - Home"
-            width={1200}
-            height={1200}
+            width={1100}
+            height={1100}
             priority
             unoptimized
           />
@@ -109,6 +110,15 @@ export default function Home() {
             </h2>
           </div>
           <Sections3 />
+        </div>
+
+        <div className="max-w-7xl mx-auto mb-10">
+          <div className="mb-12 max-w-2xl">
+            <h2 className="text-4xl lg:text-5xl font-bold tracking-tight text-black leading-tight">
+              Everything you need to start earning.
+            </h2>
+          </div>
+          <Sections4 />
         </div>
       </section>
 

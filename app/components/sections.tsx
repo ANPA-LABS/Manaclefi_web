@@ -24,7 +24,7 @@ const Sections = () => {
                             className="mt-5 w-fit xl:w-[400px]"
                         >
                             <Image
-                                src="/128.png"
+                                src="/A1L.png"
                                 alt="App screen - Home"
                                 width={100}
                                 height={100}
@@ -55,7 +55,7 @@ const Sections = () => {
                             className="w-1/2 w-fit xl:w-[500px]"
                         >
                             <Image
-                                src="/180.png"
+                                src="/A1R1.png"
                                 alt="App screen - Home"
                                 width={100}
                                 height={100}
@@ -82,7 +82,7 @@ const Sections = () => {
                             className="w-1/2 w-fit xl:w-[500px]"
                         >
                             <Image
-                                src="/180.png"
+                                src="/A1R2.png"
                                 alt="App screen - Home"
                                 width={100}
                                 height={100}
