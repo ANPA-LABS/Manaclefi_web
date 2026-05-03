@@ -50,8 +50,10 @@ function gradCSS(stops: string[]) {
 const STAMPS = {
   silver: [
     { type: 'stock' as const, img: '/stock/aapl.png',   bg: '#555555' },
-    { type: 'stock' as const, img: '/stock/msft.png',   bg: '#0078d7' },
+    { type: 'stock' as const, img: '/stock/sol.jpg',   bg: '#ff9900' },
     { type: 'stock' as const, img: '/stock/amaz.jpg',   bg: '#ff9900' },
+    { type: 'stock' as const, img: '/stock/tsla.png',   bg: '#0078d7' },
+    { type: 'stock' as const, img: '/stock/jlp.png',   bg: '#ff9900' },
     { type: 'person' as const, img: '/avatar/avatar3.png', bg: 'transparent' },
     { type: 'person' as const, img: '/avatar/avatar5.png', bg: 'transparent' },
   ],

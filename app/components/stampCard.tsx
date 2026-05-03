@@ -38,9 +38,10 @@ const PACKS: Record<string, {
     tickers: [
       { symbol: 'AAPL', weight: 28 },
       { symbol: 'MSFT', weight: 22 },
-      { symbol: 'GOGL', weight: 20 },
+      { symbol: 'GOGL', weight: 10 },
       { symbol: 'AMZN', weight: 18 },
       { symbol: 'NFLX', weight: 12 },
+      { symbol: 'SOL', weight:  10 },
     ],
   },
   highgrowth: {
