@@ -23,7 +23,7 @@ export default function Home() {
               <path d="M9 2L15 6V12L9 16L3 12V6L9 2Z" fill="white" opacity="0.95" />
             </svg>
           </div>
-          <span className="text-white font-semibold tracking-tight text-5xl lg:text-6xl">Bond</span>
+          <span className="text-white font-semibold tracking-tight text-5xl lg:text-6xl">Manacle</span>
         </div>
       </nav>
 
