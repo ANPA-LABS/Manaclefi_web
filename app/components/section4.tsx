@@ -14,12 +14,10 @@ const Sections4 = () => {
                         style={{ backgroundColor: "#d0f2d5" }}
                     >
                         <div className="w-1/2 w-full p-4">
-                            <h3 className="text-black font-bold text-4xl leading-tight tracking-tight mt-3">
-                                Track points and streaks.
+                            <h3 className="text-black font-bold text-3xl leading-tight tracking-tight mt-3">
+                                Your portfolio, built from scratch.
                             </h3>
-                            <p className="text-gray-700 text-sm mt-2 leading-relaxed">
-                                See your progress build up day by day.
-                            </p>
+
                         </div>
                         <div
                             className="w-1/2 w-fit xl:w-[500px]"
@@ -41,12 +39,10 @@ const Sections4 = () => {
                         style={{ backgroundColor: "#f8d561" }}
                     >
                         <div className="w-1/2 w-full p-4">
-                            <h3 className="text-black font-bold text-4xl leading-tight tracking-tight mb-3">
-                                Track points and streaks.
+                            <h3 className="text-black font-bold text-3xl leading-tight tracking-tight mb-3">
+                                Propose a trade. Let your group decide.
                             </h3>
-                            <p className="text-gray-700 text-sm mb-2 leading-relaxed">
-                                See your progress build up day by day.
-                            </p>
+
                         </div>
                         <div
                             className="w-1/2 w-fit xl:w-[500px]"
@@ -67,12 +63,10 @@ const Sections4 = () => {
                         style={{ backgroundColor: "#f58688" }}
                     >
                         <div className="w-1/2 w-full p-4">
-                            <h3 className="text-black font-bold text-4xl leading-tight tracking-tight mb-3">
-                                Track points and streaks.
+                            <h3 className="text-black font-bold text-3xl leading-tight tracking-tight mb-3">
+                                Smart rebalancing that moves fast and stays safe.
                             </h3>
-                            <p className="text-gray-700 text-sm mb-2 leading-relaxed">
-                                See your progress build up day by day.
-                            </p>
+
                         </div>
                         <div
                             className="w-1/2 w-fit xl:w-[500px]"
@@ -90,15 +84,12 @@ const Sections4 = () => {
                     </div>
                     <div
                         className="flex flex-col-reverse xl:flex-col xl:flex-row rounded-3xl flex gap-6 overflow-hidden px-1 h-max items-end"
-                        style={{ backgroundColor: "#F3D5E6" }} 
+                        style={{ backgroundColor: "#F3D5E6" }}
                     >
                         <div className="w-1/2 w-full p-4">
-                            <h3 className="text-black font-bold text-4xl leading-tight tracking-tight mb-3">
-                                Track points and streaks.
+                            <h3 className="text-black font-bold text-3xl leading-tight tracking-tight mb-3">
+                                Your money earns while you sleep.
                             </h3>
-                            <p className="text-gray-700 text-sm mb-2 leading-relaxed">
-                                See your progress build up day by day.
-                            </p>
                         </div>
                         <div
                             className="w-1/2 w-fit xl:w-[500px]"

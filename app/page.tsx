@@ -48,11 +48,11 @@ export default function Home() {
             </h1>
             <div>
               <p className="text-gray-400 text-base leading-relaxed max-w-md mt-3 text-center">
-                Turn your free time into value. Earn real rewards by completing simple gigs with Gigcep.
+                Auto-Pilot Onchain Investing, Built For Your Family And The People You Trust.
               </p>
             </div>
           </div>
-          <div className="flex flex-col xl:flex-row ml-0 xl:-ml-80 mt-6 xl:mt-14 justify-center items-center xl:items-center">
+          <div className="flex flex-col xl:flex-row ml-0 xl:-ml-80 mt-12 xl:mt-16 justify-center items-center xl:items-center">
             <div className="-rotate-6">
               <StampCard />
             </div>
@@ -94,7 +94,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <div className="mb-12 max-w-2xl">
             <h2 className="text-4xl lg:text-5xl font-bold tracking-tight text-black leading-tight">
-              Everything you need to start earning.
+              Built for how you actually invest.
             </h2>
           </div>
           <Sections />
@@ -103,7 +103,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <div className="mb-12 max-w-2xl">
             <h2 className="text-4xl lg:text-5xl font-bold tracking-tight text-black leading-tight">
-              Everything you need to start earning.
+              Everything you need to put money to work.
             </h2>
           </div>
           <Sections2 />
@@ -112,7 +112,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <div className="mb-12 max-w-2xl">
             <h2 className="text-4xl lg:text-5xl font-bold tracking-tight text-black leading-tight">
-              Everything you need to start earning.
+              Your portfolio. Your rules. Your people.
             </h2>
           </div>
           <Sections3 />
@@ -121,7 +121,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto mb-10">
           <div className="mb-12 max-w-2xl">
             <h2 className="text-4xl lg:text-5xl font-bold tracking-tight text-black leading-tight">
-              Everything you need to start earning.
+              Buckle up, there's more.
             </h2>
           </div>
           <Sections4 />

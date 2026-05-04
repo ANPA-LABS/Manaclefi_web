@@ -7,18 +7,18 @@ const Sections2 = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
                 {/* Left: single tall card — soft lavender */}
                 <div
-                    className="rounded-3xl p-10 flex flex-col gap-8 h-max"
+                    className="rounded-3xl px-6 xl:px-10 py-7 flex flex-col gap-8 h-max"
                     style={{ backgroundColor: "#FB8767" }}
                 >
                     <div>
                         <h3 className="text-zinc-900 font-bold text-3xl leading-tight tracking-tight">
-                            Complete daily gigs in seconds.
+                            Browse the market and buy what moves you.
                         </h3>
                         {/* <p className="text-gray-100  text-base mt-1 leading-relaxed max-w-md">
                             Quick missions designed for spare moments — earn rewards while you wait, walk, or wind down.
                         </p> */}
                     </div>
-                    <div className='flex justify-center w-full'>
+                    <div className='flex justify-center w-full -mt-3'>
                         <div
                             className="mt-5 w-fit xl:w-[400px]"
                         >
@@ -43,12 +43,9 @@ const Sections2 = () => {
                         style={{ backgroundColor: "#FFDADC" }}
                     >
                         <div className="w-1/2 w-full p-4">
-                            <h3 className="text-black font-bold text-4xl leading-tight tracking-tight mt-3">
-                                Track points and streaks.
+                            <h3 className="text-black font-bold text-3xl leading-tight tracking-tight mt-3">
+                                Hand-picked collections for every strategy.
                             </h3>
-                            <p className="text-gray-700 text-sm mt-2 leading-relaxed">
-                                See your progress build up day by day.
-                            </p>
                         </div>
                         <div
                             className="w-1/2 w-fit xl:w-[500px]"
@@ -70,12 +67,9 @@ const Sections2 = () => {
                         style={{ backgroundColor: "#E9E8EA" }}
                     >
                         <div className="w-1/2 w-full p-4">
-                            <h3 className="text-black font-bold text-4xl leading-tight tracking-tight mt-3">
-                                Track points and streaks.
+                            <h3 className="text-black font-bold text-3xl leading-tight tracking-tight mt-3">
+                                Build a pack around your own conviction.
                             </h3>
-                            <p className="text-gray-700 text-sm mt-2 leading-relaxed">
-                                See your progress build up day by day.
-                            </p>
                         </div>
                         <div
                             className="w-1/2 w-fit xl:w-[500px]"
