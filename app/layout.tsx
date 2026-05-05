@@ -13,7 +13,7 @@ const bowby_one_sc = Stack_Sans_Text({
 
 export const metadata: Metadata = {
   title: "Manacle",
-  description: "Auto-pilot onchain fidelity for you family",
+  description: "Auto-pilot onchain fidelity for your family",
 };
 
 export default function RootLayout({
