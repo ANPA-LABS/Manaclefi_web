@@ -3,6 +3,8 @@ import { Geist, Geist_Mono, Stack_Sans_Text } from "next/font/google";
 import "./globals.css";
 import Footer from "./components/footer";
 import { Toaster } from "@/components/ui/sonner";
+import { Analytics } from '@vercel/analytics/next';
+
 
 const bowby_one_sc = Stack_Sans_Text({
   subsets: ["latin"],
@@ -26,6 +28,7 @@ export default function RootLayout({
         className={`${bowby_one_sc.className} h-full antialiased`}
       >
         <body className="min-h-full flex flex-col">{children}
+          <Analytics />
           <Toaster />
         </body>
       </html>
