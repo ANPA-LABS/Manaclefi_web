@@ -58,7 +58,7 @@ const Cta = () => {
 
     return (
         <>
-            <div className='flex flex-col xl:flex-row w-max h-max bg-white rounded-2xl overflow-hidden mt-26'>
+            <div className='flex flex-col xl:flex-row w-max h-max bg-white rounded-2xl overflow-hidden mt-20'>
 
                 <div className='w-1/4 flex flex-row xl:flex-col gap-y-22'>
                     <div className='p-2 -mt-10 lg:-mt-16 -ml-50 xl:-ml-33 -rotate-6'>

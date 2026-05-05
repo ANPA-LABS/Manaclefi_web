@@ -128,7 +128,7 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="flex justify-center p-6" style={{ backgroundColor: "#222121" }}>
+      <div className="flex justify-center p-4 xl:p-6" style={{ backgroundColor: "#222121" }}>
         <Cta />
       </div>
     </div>
