@@ -40,15 +40,15 @@ export default function Home() {
         <div className="z-10 px-10 flex flex-col xl:flex-col">
           <div className="flex flex-col justify-center items-center  text-center">
             <h1 className="text-5xl lg:text-7xl font-semibold leading-[1.05] tracking-tight text-black">
-              Auto-Pilot{" "}
+               Programmable{" "}
               <br />
-              Onchain Fidelity
+               Money Finally
               <br />
-              For Your Family.
+               for Everyone.
             </h1>
             <div>
               <p className="text-gray-400 text-base leading-relaxed max-w-md mt-3 text-center">
-                Auto-Pilot Onchain Investing, Built For Your Family And The People You Trust.
+                Trade, invest and earn yield on autopilot, on your rules with your people
               </p>
             </div>
           </div>
