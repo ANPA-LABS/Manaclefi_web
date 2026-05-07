@@ -6,12 +6,7 @@ const Footer = () => {
         <div className='mt-16'>
             <footer className='w-full py-8 px-10 flex flex-col gap-y-10 items-center justify-between text-sm text-gray-500 mt-16'>
 
-                <span>© 2026 Bond. All rights reserved.</span>
-                <div className='flex  gap-6'>
-                    <a href='#' className='hover:text-black transition-colors'>Privacy</a>
-                    <a href='#' className='hover:text-black transition-colors'>Terms</a>
-                    <a href='#' className='hover:text-black transition-colors'>Contact</a>
-                </div>
+                <span>© 2026 Manaclefi. All rights reserved.</span>
             </footer>
             <div className='flex justify-center mt-2'>
                 <Image
