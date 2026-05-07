@@ -24,7 +24,7 @@ export default function Home() {
               width={100}
               height={100}
               src={"/logo.png"}
-              alt=""
+              alt="frontimage"
               className="rounded-xl"
             />
           </div>
