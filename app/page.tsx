@@ -40,11 +40,11 @@ export default function Home() {
         <div className="z-10 px-10 flex flex-col xl:flex-col">
           <div className="flex flex-col justify-center items-center  text-center">
             <h1 className="text-5xl lg:text-7xl font-semibold leading-[1.05] tracking-tight text-black">
-               Programmable{" "}
+               Your Money{" "}
               <br />
-               Money Finally
+              Your Rules
               <br />
-               for Everyone.
+              Your People.
             </h1>
             <div>
               <p className="text-gray-400 text-base leading-relaxed max-w-md mt-3 text-center">
